@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input } from '@angular/core';
-import { Persona } from '../persona.model';
-import { PersonaService } from '../personas.services';
+import { Persona } from '../../persona.model';
+import { PersonaService } from '../../personas.services';
 
 @Component({
   selector: 'app-persona',

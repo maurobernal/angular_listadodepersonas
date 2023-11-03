@@ -8,12 +8,6 @@ import { PersonaService } from './personas.services';
   styleUrls: ['./app.component.css'],
   providers: [PersonaService],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   titulo = 'Listado de Personas';
-
-  personas: Persona[] = [];
-  constructor(private readonly personasService: PersonaService) {}
-  ngOnInit(): void {
-    this.personas = this.personasService.personas;
-  }
 }
