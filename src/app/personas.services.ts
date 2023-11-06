@@ -44,6 +44,7 @@ export class PersonaService {
     this.logginServce.enviarMensajeAConsola(
       'Se agregó persona: ' + persona.nombre + ' ' + persona.apellido
     );
+    this.dataService.modificarPersona(index, persona);
   }
   encontrarPersona(index: number) {
     let persona: Persona = this.personas[index];
@@ -51,5 +52,12 @@ export class PersonaService {
   }
   eliminarPersona(index: number) {
     this.personas.splice(index, 1);
+    this.dataService.eliminarPersona(index);
+    this.modificarPersonas();
+  }
+  modificarPersonas() {
+    if (this.personas != null) {
+      this.dataService.guardarPersonas(this.personas);
+    }
   }
 }

@@ -58,6 +58,9 @@ form {
   margin-left: 20px;
 }
 
+.centrador {
+  text-align: center;
+}
 button {
   min-height: 50px;
   width: 50px;
