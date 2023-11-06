@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Persona } from '../persona.model';
 import { PersonaService } from '../personas.services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personas',
@@ -10,8 +11,18 @@ import { PersonaService } from '../personas.services';
 export class PersonasComponent {
   personas: Persona[] = [];
 
-  constructor(private readonly personasService: PersonaService) {}
+  constructor(
+    private readonly personasService: PersonaService,
+    private readonly router: Router
+  ) {}
   ngOnInit(): void {
-    this.personas = this.personasService.personas;
+    this.personasService.obtenerPersonas().subscribe((personas: Persona[]) => {
+      this.personas = personas;
+      this.personasService.setPersonas(personas);
+    });
+  }
+
+  agregar() {
+    this.router.navigate(['personas/agregar']);
   }
 }

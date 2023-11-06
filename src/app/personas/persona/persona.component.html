@@ -1,9 +1,13 @@
 <div class="item">
-  <input
-    type="checkbox"
-    class="btn btn-info"
-    (click)="emitirSaludo()"
-    placeholder="emitir"
-  />
-  <p>{{ indice + 1 }}: {{ persona.nombre }} - {{ persona.apellido }}</p>
+  <ul>
+    <li>
+      <a
+        title="Editar"
+        [routerLink]="['/personas', indice]"
+        [queryParams]="{ modoEdicion: '1' }"
+      >
+        {{ persona.nombre }} - {{ persona.apellido }}
+      </a>
+    </li>
+  </ul>
 </div>
